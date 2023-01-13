@@ -18,7 +18,7 @@ class Department
 
   def add_expense(expense)
     if @employees.include?(expense.employee)
-      @expenses += expense.cost
+      expense(expense.cost)
       @expense_list << expense
     end
   end

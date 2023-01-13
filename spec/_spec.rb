@@ -52,10 +52,10 @@ describe Department do
 
   it 'has expenses' do
     customer_service = Department.new("Customer Service")    
-    expect(customer_service.expenses).to eq(0)# => 0
+    expect(customer_service.expenses).to eq(0)
     customer_service.expense(100)
     customer_service.expense(25)
-    expect(customer_service.expenses).to eq(125)# => 125
+    expect(customer_service.expenses).to eq(125)
   end
 end
 
