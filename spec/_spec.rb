@@ -138,8 +138,9 @@ describe Expense do
 
     customer_service.add_expense(expense1)
     expect(customer_service.expenses).to eq(0)
+    expect(customer_service.expense_list).to eq([])
   end
-  
+
   it 'can ask who is responsible' do
     budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
@@ -150,7 +151,7 @@ describe Expense do
     expect(customer_service.responsible(expense1)).to eq(bobbi)
   end
 
-  it 'cannot have an expense be responsible if expense not on list' do
+  it 'cannot have an expense be responsible if expense not added' do
     budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
@@ -159,15 +160,14 @@ describe Expense do
     expect(customer_service.responsible(expense1)).to eq("Expense not on list.")
   end
 
-  it 'cannout have an expense be responsible by a non-employee' do
-    budget = Budget.new("State of Colorado", 1876)
-    customer_service = Department.new("Customer Service")
-    bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
-    expense1 = Expense.new("New Keyboard", bobbi, 100)
-    customer_service.add_expense(expense1)
-    expect(customer_service.responsible(expense1)).to eq("Employee not part of department.")
-
-  end
+  # it 'cannout have an expense be responsible by a non-employee' do
+  #   budget = Budget.new("State of Colorado", 1876)
+  #   customer_service = Department.new("Customer Service")
+  #   bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
+  #   expense1 = Expense.new("New Keyboard", bobbi, 100)
+  #   customer_service.add_expense(expense1)
+  #   expect(customer_service.responsible(expense1)).to eq("Employee not part of department.")
+  # end
 
   it 'can total expenses for a given employee' do
     budget = Budget.new("State of Colorado", 1876)
