@@ -30,6 +30,10 @@ class Department
   end
 
   def responsible(expense)
-    expense.employee
+    if @expense_list.include?(expense) && @employees.include?(expense.employee)
+     return expense.employee
+    else 
+      @expense_list.include?(expense) ? "Employee not part of department." : "Expense not on list."
+    end
   end
 end
