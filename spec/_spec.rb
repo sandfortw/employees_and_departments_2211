@@ -128,6 +128,18 @@ describe Expense do
     expect(customer_service.expenses).to eq(600)
   end
 
+  it 'cannot add an expense if employee attached to expense is not on the list' do
+    budget = Budget.new("State of Colorado", 1876)
+    customer_service = Department.new("Customer Service")
+    bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
+   
+
+    expense1 = Expense.new("New Keyboard", bobbi, 100)
+
+    customer_service.add_expense(expense1)
+    expect(customer_service.expenses).to eq(0)
+  end
+  
   it 'can ask who is responsible' do
     budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
