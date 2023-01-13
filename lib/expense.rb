@@ -8,4 +8,5 @@ class Expense
     @employee = employee
     @cost = cost
   end
+  
 end
