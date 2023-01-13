@@ -28,4 +28,8 @@ class Department
     end
     total
   end
+
+  def responsible(expense)
+    expense.employee
+  end
 end
