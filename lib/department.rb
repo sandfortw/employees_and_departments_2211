@@ -5,6 +5,7 @@ class Department
     @name = name
     @employees = []
     @expenses = 0
+    @expense_list = []
   end
 
   def hire(employee)
@@ -14,7 +15,5 @@ class Department
   def expense(cost)
     @expenses += cost
   end
-
-  
 
 end
