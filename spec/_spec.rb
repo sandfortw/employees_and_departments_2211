@@ -1,6 +1,7 @@
 require './lib/employee'
 require './lib/department'
 require './lib/budget'
+require './lib/expense'
 
 describe Employee do
   
@@ -98,4 +99,31 @@ describe Budget do
     budget.add_department(accounting)
     expect(budget.salaries).to eq({bobbi => 100000, steve => 30000})
   end
+end
+
+describe Expense do 
+
+  it 'has name, employee and a cost' do
+    bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
+    expense1 = Expense.new("New Keyboard", bobbi, 100)
+    expect(expense1.name).to eq("New Keyboard")
+    expect(expense1.employee).to eq(bobbi)
+    expect(expense1.cost).to eq(100)
+  end
+
+  xit 'can add expenses with a responsible employee' do
+    budget = Budget.new("State of Colorado", 1876)
+    customer_service = Department.new("Customer Service")
+    accounting = Department.new("Accounting") 
+    bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
+    steve = Employee.new({name: "Steve Guy", age: "35", salary: "$30000"})
+    customer_service.hire(bobbi)
+    accounting.hire(steve)
+    expense_1 = Expense.new
+    budget.add_department(customer_service)
+    budget.add_department(accounting)
+    
+  end
+
+
 end

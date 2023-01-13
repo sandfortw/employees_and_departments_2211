@@ -15,4 +15,6 @@ class Department
     @expenses += cost
   end
 
+  
+
 end
