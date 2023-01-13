@@ -1,3 +1,7 @@
+require './lib/employee'
+require './lib/department'
+require './lib/expense'
+
 describe Expense do 
 
   it 'has name, employee and a cost' do
@@ -9,7 +13,6 @@ describe Expense do
   end
 
   it 'can add expenses with a responsible employee' do
-    budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
     steve = Employee.new({name: "Steve Guy", age: "35", salary: "$30000"})
@@ -26,11 +29,9 @@ describe Expense do
   end
 
   it 'cannot add an expense if employee attached to expense is not on the list' do
-    budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
    
-
     expense1 = Expense.new("New Keyboard", bobbi, 100)
 
     customer_service.add_expense(expense1)
@@ -39,7 +40,6 @@ describe Expense do
   end
 
   it 'can ask who is responsible' do
-    budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
     customer_service.hire(bobbi)
@@ -49,7 +49,6 @@ describe Expense do
   end
 
   it 'cannot have an expense be responsible if expense not added' do
-    budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
     customer_service.hire(bobbi)
@@ -58,7 +57,6 @@ describe Expense do
   end
 
   it 'can total expenses for a given employee' do
-    budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
     steve = Employee.new({name: "Steve Guy", age: "35", salary: "$30000"})

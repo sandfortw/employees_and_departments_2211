@@ -1,6 +1,8 @@
 require './lib/employee'
 require './lib/department'
 require './lib/budget'
+require './lib/expense'
+
 
 describe Budget do
 
@@ -42,4 +44,5 @@ describe Budget do
     budget.add_department(accounting)
     expect(budget.salaries).to eq({bobbi => 100000, steve => 30000})
   end
+
 end
