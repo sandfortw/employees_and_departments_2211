@@ -1,5 +1,7 @@
 class Budget
-  attr_reader :name, :year, :departments
+  attr_reader :name,
+              :year, 
+              :departments
 
   def initialize(name, year)
     @name = name
@@ -12,17 +14,13 @@ class Budget
   end
 
   def cheap_depts
-    @departments.select do |department|
-      department.expenses < 500
-    end
+    @departments.select{ |department| department.expenses < 500 }
   end
 
   def salaries
     hash = {}
     @departments.each do |department|
-      department.employees.each do |employee|
-        hash[employee]= employee.salary
-      end
+      department.employees.each { |employee| hash[employee]= employee.salary }
     end
     hash
   end
