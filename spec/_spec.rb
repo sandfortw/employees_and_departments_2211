@@ -61,18 +61,30 @@ end
 describe Budget do
 
   it 'has a year' do
-
+    budget = Budget.new("State of Colorado", 1876)
+    expect(budget.year).to eq(1876)
   end
 
   it 'has a list of departments' do
-
+    budget = Budget.new("State of Colorado", 1876)
+    expect(budget.departments).to eq([])
+    customer_service = Department.new("Customer Service")    
+    accounting = Department.new("Accounting")    
+    budget.add_department(customer_service)
+    budget.add_department(accounting)
+    expect(budget.departments).to eq([customer_service, accounting])
   end
 
   it 'can list departments with expenses less than $500' do
-
+    budget = Budget.new("State of Colorado", 1876)
+    expect(budget.departments).to eq([])
+    customer_service = Department.new("Customer Service")    
+    accounting = Department.new("Accounting")    
+    budget.add_department(customer_service)
+    budget.add_department(accounting)
   end
 
   it 'can list all employees salaries' do 
-    
+
   end
 end
