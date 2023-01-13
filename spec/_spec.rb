@@ -96,6 +96,6 @@ describe Budget do
     accounting.hire(steve)
     budget.add_department(customer_service)
     budget.add_department(accounting)
-    expect(budget.salaries).to eq({bobbi => bobbi.salary, steve => steve.salary})
+    expect(budget.salaries).to eq({bobbi => 100000, steve => 30000})
   end
 end
