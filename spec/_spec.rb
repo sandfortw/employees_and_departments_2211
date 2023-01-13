@@ -1,5 +1,6 @@
 require './lib/employee'
 require './lib/department'
+require './lib/budget'
 
 describe Employee do
   
@@ -55,6 +56,23 @@ describe Department do
     customer_service.expense(25)
     expect(customer_service.expenses).to eq(125)# => 125
   end
+end
 
-  
+describe Budget do
+
+  it 'has a year' do
+
+  end
+
+  it 'has a list of departments' do
+
+  end
+
+  it 'can list departments with expenses less than $500' do
+
+  end
+
+  it 'can list all employees salaries' do 
+    
+  end
 end
