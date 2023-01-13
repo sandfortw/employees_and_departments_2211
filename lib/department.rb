@@ -17,8 +17,10 @@ class Department
   end
 
   def add_expense(expense)
-    @expenses += expense.cost
-    @expense_list << expense
+    if @employees.include?(expense.employee)
+      @expenses += expense.cost
+      @expense_list << expense
+    end
   end
 
   def total(employee)
@@ -30,10 +32,6 @@ class Department
   end
 
   def responsible(expense)
-    if @expense_list.include?(expense) && @employees.include?(expense.employee)
-     return expense.employee
-    else 
-      @expense_list.include?(expense) ? "Employee not part of department." : "Expense not on list."
-    end
+    @expense_list.include?(expense) ? expense.employee : "Expense not on list."
   end
 end
