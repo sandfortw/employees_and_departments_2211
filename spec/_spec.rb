@@ -111,7 +111,7 @@ describe Expense do
     expect(expense1.cost).to eq(100)
   end
 
-  xit 'can add expenses with a responsible employee' do
+  it 'can add expenses with a responsible employee' do
     budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
@@ -124,11 +124,11 @@ describe Expense do
 
     customer_service.add_expense(expense1)
     customer_service.add_expense(expense2)
-    expect(customer_service.expense_list).to eq[expense1, expense2]
+    expect(customer_service.expense_list).to eq([expense1, expense2])
     expect(customer_service.expenses).to eq(600)
   end
 
-  xit 'can total expenses for a given employee' do
+  it 'can total expenses for a given employee' do
     budget = Budget.new("State of Colorado", 1876)
     customer_service = Department.new("Customer Service")
     bobbi = Employee.new({name: "Bobbi Jaeger", age: "30", salary: "$100000"})
